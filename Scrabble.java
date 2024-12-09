@@ -121,15 +121,15 @@ public class Scrabble {
 				int points = wordScore(input);
 				score += points;
 				hand = MyString.remove(hand, input);
-				System.out.println(input.toLowerCase() + " earned " + points + " points. Score: " + score + " points");
+				System.out.println(input + " earned " + points + " points. Score: " + score + " points");
 			} else {
 				System.out.println("Invalid word. Try again.");
 			}
 		}
 		if (hand.isEmpty()) {
-	        System.out.println("Ran out of letters. Total score: " + score + " points\n");
+	        System.out.println("Ran out of letters. Total score: " + score + " points");
 		} else {
-			System.out.println("End of hand. Total score: " + score + " points\n");
+			System.out.println("End of hand. Total score: " + score + " points");
 		}
 	}
 
