@@ -118,7 +118,7 @@ public class Scrabble {
 			if (input.equals("."))
 				break;
 			if (isWordInDictionary(input)) {
-				int points = wordScore(hand);
+				int points = wordScore(input);
 				score += points;
 				hand = MyString.remove(hand, input);
 				System.out.println(input.toLowerCase() + " earned " + points + " points. Score: " + score + " points");
@@ -159,7 +159,7 @@ public class Scrabble {
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
 		////testBuildingTheDictionary();
-		////testScrabbleScore();    
+		////testScrabbleScore();
 		////testCreateHands();
 		////testPlayHands();
 		////playGame();
