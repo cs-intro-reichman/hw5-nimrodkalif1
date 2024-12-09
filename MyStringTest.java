@@ -1,11 +1,5 @@
 public class MyStringTest {
     public static void main(String[] args) {
-        testCountChar();
-        testSubsetOf();
-        testSpacedString();
-        testRandomStringOfLetters();
-        testRemove();
-
 
         if (args.length == 0) {
             System.out.println("Please provide a specific test to run: countChar, subsetOf, spacedString, randomStringOfLetters, or remove.");
