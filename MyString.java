@@ -16,12 +16,18 @@ public class MyString {
      * Example: countChar("Center",'e') returns 2 and countChar("Center",'c') returns 0. 
      * 
      * @param str - a string
-     * @param c - a character
+     * @param ch - a character
      * @return the number of times c appears in str
      */
     public static int countChar(String str, char ch) {
         //// Replace the following statement with your code
-        return 0;
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ch) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /** Returns true if str1 is a subset string str2, false otherwise
@@ -37,7 +43,12 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
          //// Replace the following statement with your code
-        return false;
+        for (int i = 0; i < str1.length(); i++) {
+            if (countChar(str1, str1.charAt(i)) > countChar(str2, str1.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -50,7 +61,13 @@ public class MyString {
      */
     public static String spacedString(String str) {
         //// Replace the following statement with your code
-        return null;
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            result += str.charAt(i);
+            if (i < str.length() - 1)
+                result += " ";
+        }
+        return result;
     }
   
     /**
@@ -65,7 +82,13 @@ public class MyString {
      */
     public static String randomStringOfLetters(int n) {
         //// Replace the following statement with your code
-        return null;
+        String result = "";
+        for (int i = 0; i < n; i++) {
+            int offset = (int) (Math.random() * 26);
+            char c = (char) ('a' + offset);
+            result += c;
+        }
+        return result;
     }
 
     /**
@@ -79,7 +102,17 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
        //// Replace the following statement with your code
-        return null;
+        for (int i = 0; i < str2.length(); i++) {
+            str1 = removeChar(str1, str2.charAt(i));
+        }
+        return str1;
+    }
+
+    private static String removeChar(String str1, char ch) {
+        int index = str1.indexOf(ch);
+        if (index == -1)
+            return str1;
+        return str1.substring(0, index) + str1.substring(index + 1);
     }
 
     /**
