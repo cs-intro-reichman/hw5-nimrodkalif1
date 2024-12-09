@@ -73,18 +73,18 @@ public class Scrabble {
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
 		//// Replace the following statement with your code
-		int score = 0;
+		int currentScore = 0;
 		for (int i = 0; i < word.length(); i++) {
-			int wordIndex = (int) (word.charAt(i) - 'a');
-			score += SCRABBLE_LETTER_VALUES[wordIndex];
+			int wordIndex = (word.charAt(i) - 'a');
+			currentScore += SCRABBLE_LETTER_VALUES[wordIndex];
 		}
-		score *= word.length();
+		currentScore *= word.length();
 		if (MyString.subsetOf("runi", word))
-			score += 1000;
+			currentScore += 1000;
 		if (word.length() == HAND_SIZE)
-			score += 50;
+			currentScore += 50;
 
-		return score;
+		return currentScore;
 	}
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
@@ -123,7 +123,7 @@ public class Scrabble {
 				hand = MyString.remove(hand, input);
 				System.out.println(input.toLowerCase() + " earned " + points + " points. Score: " + score + " points");
 			} else {
-				System.out.println("No such word in the dictionary. Try again.");
+				System.out.println("Invalid word. Try again.");
 			}
 		}
 		if (hand.isEmpty()) {
@@ -153,8 +153,6 @@ public class Scrabble {
 			}
 			else
 				break;
-			//// Replace the following break statement with code
-			//// that completes the game playing loop
 		}
 	}
 
